@@ -88,7 +88,10 @@ public class Drink {
 		// I liked your idea for the switch CASE - would place
 		// here - either that or an if/else if like did in the
 		// setBasePrice() method below
+		// [1]Expresso, [2]Latte, [3]Macchiato, [4]Cappuccino
 		
+		// ??? Re-thinking - Might not need either of above if set
+		// up webpage to allow user to select one of these 4 text strings
 		this.drinkType = drinkType;
 	}
 
