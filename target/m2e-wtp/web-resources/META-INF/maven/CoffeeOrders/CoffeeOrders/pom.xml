@@ -2,6 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>CoffeeOrders</groupId>
   <artifactId>CoffeeOrders</artifactId>
+  <!-- <groupId>CoffeeShop</groupId>
+  <artifactId>CoffeeShop</artifactId>-->
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>JavaIIWeek7-CoffeeOrdersMiniProject</name>

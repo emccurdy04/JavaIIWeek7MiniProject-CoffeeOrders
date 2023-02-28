@@ -26,7 +26,7 @@ import javax.persistence.Table;
  * tables.  
  */
 @Entity
-@Table(name="customers")
+@Table(name="Customers")
 public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +37,7 @@ public class Customer {
 	@Column(name="LASTNAME")
 	private String lastName;
 	@Column(name="PHONENUMBER")
-	private int phoneNumber;
+	private String phoneNumber;
 	
 	// Will add in the joins later once sure just the simple customer table creation
 	// is working for both of us
@@ -62,7 +62,7 @@ public class Customer {
 	 * @param lastName
 	 * @param phoneNumber
 	 */
-	public Customer(String firstName, String lastName, int phoneNumber) {
+	public Customer(String firstName, String lastName, String phoneNumber) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -78,7 +78,7 @@ public class Customer {
 	 * @param phoneNumber
 	 * @param orders
 	 */
-	public Customer(String firstName, String lastName, int phoneNumber, ArrayList<Order> orders) {
+	public Customer(String firstName, String lastName, String phoneNumber, ArrayList<Order> orders) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -94,7 +94,7 @@ public class Customer {
 	 * @param phoneNumber
 	 * @param orders
 	 */
-	public Customer(int customerID, String firstName, String lastName, int phoneNumber, ArrayList<Order> orders) {
+	public Customer(int customerID, String firstName, String lastName, String phoneNumber, ArrayList<Order> orders) {
 		super();
 		this.customerID = customerID;
 		this.firstName = firstName;
@@ -150,14 +150,14 @@ public class Customer {
 	/**
 	 * @return the phoneNumber
 	 */
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
 	/**
 	 * @param phoneNumber the phoneNumber to set
 	 */
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -180,6 +180,7 @@ public class Customer {
 		this.orders.add(order);
 	}
 	
+	// ??? decide on which of below two customer details to keep
 	public String customerInfoDetails() {
 		String firstName = this.firstName;
 		String lastName = this.lastName;
@@ -187,9 +188,15 @@ public class Customer {
 		return lastName + ", " + firstName + "\n" + formattedPhone;
 	}
 	
-	private String formatPhoneNum(int phoneNumber) {
-		//String phoneNumDigits = str(phoneNumber);
-		String phoneNumDigits = Integer.toString(phoneNumber);
+	public String returnCustomerDetails( ) {
+		//return fName + " " + lName + " "+ phoneNumber;
+		return firstName + " " + lastName + " "+ phoneNumber;
+	}
+	
+	private String formatPhoneNum(String phoneNumber) {
+		String phoneNumDigits = phoneNumber;
+		// changed phoneNumber from int to String so no longer needed to cast int to String
+		//String phoneNumDigits = Integer.toString(phoneNumber);
 		String formattedPhoneNum = "";
 		formattedPhoneNum += "(" + phoneNumDigits.substring(0,3) + ")" + phoneNumDigits.substring(3, 6) + "-" + phoneNumDigits.substring(6, phoneNumDigits.length());
 		//System.out.println(formattedPhoneNum);
